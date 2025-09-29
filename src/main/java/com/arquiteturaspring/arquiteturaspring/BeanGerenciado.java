@@ -27,6 +27,7 @@ public class BeanGerenciado {
     @Autowired
     private TodoValidator validator;
 
+
     public void utilizar(){
         var todo = new TodoEntity();
         validator.validar(todo);
@@ -44,5 +45,6 @@ public class BeanGerenciado {
     @Autowired
     public BeanGerenciado(TodoValidator validator) {
         this.validator = validator;
+
     }
 }

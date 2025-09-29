@@ -4,10 +4,12 @@ import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 @SpringBootApplication
+@EnableConfigurationProperties
 public class ArquiteturaSpringApplication {
 
 	public static void main(String[] args) {
@@ -31,6 +33,11 @@ public class ArquiteturaSpringApplication {
 
 		ExemploValue value = context.getBean(ExemploValue.class);
 		value.imprimirVariavel();
+
+		AppProperties properties = context.getBean(AppProperties.class);
+		System.out.println(properties.getVariavel());
+		System.out.println(properties.getValor1());
+		System.out.println(properties.getMeuNome());
 
 	}
 
