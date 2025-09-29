@@ -14,9 +14,9 @@ public class TesteFabricaController {
 
     @Autowired
     //@Qualifier("motorTurbo'")
-    //@Aspirado
+    @Aspirado
     //@Eletrico
-    @Turbo
+    //@Turbo
     private Motor motor;
 
     @PostMapping

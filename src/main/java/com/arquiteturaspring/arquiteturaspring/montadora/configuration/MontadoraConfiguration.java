@@ -2,6 +2,7 @@ package com.arquiteturaspring.arquiteturaspring.montadora.configuration;
 
 import com.arquiteturaspring.arquiteturaspring.montadora.Motor;
 import com.arquiteturaspring.arquiteturaspring.montadora.TipoMotor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -11,11 +12,12 @@ import org.springframework.context.annotation.Scope;
 public class MontadoraConfiguration {
 
 
+    @Primary
     @Bean(name = "motorAspirado")
     @Scope("singleton")
-    public Motor motorAspirado(){
+    public Motor motorAspirado(@Value("${app.montadora.motor-padrao}") Integer cavalos){
         var motor = new Motor();
-        motor.setCavalos(120);
+        motor.setCavalos(cavalos);
         motor.setCilindros(4);
         motor.setModelo("XPTO");
         motor.setLitragem(2.0);
@@ -34,7 +36,7 @@ public class MontadoraConfiguration {
         return motor;
     }
 
-    @Primary
+
     @Bean(name = "motorTurbo")
     public Motor motorTurbo(){
         var motor = new Motor();
