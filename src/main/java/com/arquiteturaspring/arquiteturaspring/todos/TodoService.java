@@ -14,7 +14,7 @@ public class TodoService {
         this.validator = validator;
         this.mailSender = mailSender;
     }
-    
+
     public TodoEntity salvar(TodoEntity novoTodo){
         validator.validar(novoTodo);
         return repository.save(novoTodo);
