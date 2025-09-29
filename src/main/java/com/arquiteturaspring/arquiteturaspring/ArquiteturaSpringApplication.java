@@ -18,6 +18,7 @@ public class ArquiteturaSpringApplication {
 		//desliga o banner
 		builder.bannerMode(Banner.Mode.OFF);
 		builder.profiles("producao", "homologacao"		);
+		builder.lazyInitialization(true);
 		builder.run(args);
 
 		//pega o contexto da aplicação já iniciada
